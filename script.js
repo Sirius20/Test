@@ -26,7 +26,7 @@ class NewsCard {
                     <time class="articles__qoute-date">${this.data}</time>
                     <p class="articles__qoute-author">${this.author}</p>
                 </div>
-                <img class="articles__img" src="/images/Avatar-0${this.avatarNum}.png" width="112px" height="104px" alt="avatar">
+                <img class="articles__img" src="/images/Avatar-0${this.avatarNum}.png" alt="avatar">
             </div>`;
         this.parent.append(element);
     }

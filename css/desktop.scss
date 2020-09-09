@@ -11,6 +11,7 @@ body {
     box-sizing: border-box;
     background-color: $bg-white;
     color: $text-black;
+    margin: 0;
     font: {
         family: "Roboto", "Arial", sans-serif;
         size: 16px;
@@ -35,15 +36,27 @@ body {
     @media (max-width: 1440px) {
         width: 80%;
     }
+
+    @media (max-width: 320px) {
+        width: 100%;
+    }
 }
 
 .header {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
     text-transform: uppercase;
     border-bottom: 1px solid #8E8E8E;
     margin-bottom: 27px;
+
+    @media (max-width: 1010px) {
+        flex-direction: column;
+    }
+
+    @media (max-width: 320px) {
+        display: none;
+    }
 
     .menu__list {
         display: flex;
@@ -59,6 +72,13 @@ body {
 
     .support {
         position: relative;
+        margin-bottom: 20px;
+
+        @media (max-width: 1010px) {
+            margin-left: 30px;
+            align-self: flex-end;
+        }
+
         a {
             &:hover {
                 color: #F96753;
@@ -93,11 +113,22 @@ main {
         display: flex;
         align-items: center;
         margin-bottom: 166px;
-        
+
+        @media (max-width: 320px) {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 75px;
+            padding-left: 10px;
+        }
+
         .xl_text {
             font-size: 48px;
             line-height: 58px;
             margin: 0;
+
+            @media (max-width: 320px) {
+                font-size: 20px;
+            }
         }
         
         p {
@@ -107,15 +138,43 @@ main {
         .logo {
             display: flex;
             align-items: flex-start;
-
             margin-right: 448px;
+
+            @media (max-width: 1440px) {
+                margin-right: 305px;
+            }
+
+            @media (max-width: 1321px) {
+                margin-right: 50px;
+            }
+
+            @media (max-width: 320px) {
+                align-items: center;
+                margin-bottom: 10px;
+            }
 
             img {
                 margin-right: 9.6px;
+                width: 80px; 
+                height: 87px;
+
+                @media (max-width: 1440px) {
+                    width: 76px; 
+                    height: 87px;
+                }
+
+                @media (max-width: 320px) {
+                    width: 36px; 
+                    height: 40px;
+                }
             }
 
             p {
                 text-transform: uppercase;
+
+                @media (max-width: 320px) {
+                    display: none;
+                }
             }
         }
         
@@ -131,17 +190,44 @@ main {
                 top: 12px;
                 left: -45px;
                 width: 38px;
+
+                @media (max-width: 320px) {
+                    top: -5px;
+                }
+            }
+
+            &::after {
+                position: absolute;
+                display: none;
+
+                @media (max-width: 320px) {
+                    display: inline;
+                }
+            }
+
+            @media (max-width: 320px) {
+                font-size: 16px;
+                
             }
         }
 
         .main-header__ad {
             margin-right: 108px;
 
+            @media (max-width: 1440px) {
+                margin-right: 50px;
+            }
+
             .main-header__upper {
                 &::before {
                     background: url("../images/Vector.png") no-repeat;
                     height: 30px;
                 }
+
+                // &::after {
+                //     content: ": Автор JS-интенсивов, встроенный скроллер";
+                //     line-height: 130%;
+                // }
             }
         }
 
@@ -150,6 +236,10 @@ main {
                 &::before {
                     background: url("../images/calendar.png") no-repeat;
                     height: 38px;
+                }
+
+                @media (max-width: 320px) {
+                    text-transform: lowercase;
                 }
             }
         }
@@ -163,39 +253,60 @@ main {
             weight: 400;
         }
 
+        @media (max-width: 320px) {
+            font-size: 21px;
+            line-height: 25px;
+        }
+
         line-height: 38px;
         color: $text-dark;
     }
 
     .articles__qoute-date {
         color: $text-gray;
+        @media (max-width: 320px) {
+            font-size: 12px;
+        }
     }
 
     .articles__qoute-author {
         color: $text-dark;
         font-style: normal;
         text-transform: uppercase;
+
+        @media (max-width: 320px) {
+            font-size: 12px;
+        }
     }
 
     .articles {
         display: flex;
         margin-bottom: 360px;
 
-        .articles__first-block {
-            display: flex;
+        @media (max-width: 320px) {
             flex-direction: column;
-            box-sizing: content-box;
+            flex-wrap: wrap;
+        }
+
+        .articles__first-block {
+            display: inline-flex;
+            flex-direction: column;
+            align-self: flex-start;
             background-color: $bg-dark;
-            width: 530px;
+            width: 576px;
             padding-left: 24px;
-            padding-right: 46px;
 
             @media (max-width: 1440px) {
-                height: 639px;
+               width: 50%;
+            }
+
+            @media (max-width: 320px) {
+                width: 295px;
             }
 
             .articles__title {
                 font-weight: bold;
+                padding-right: 46px;
                 a {
                     color: $text-white;
                 }
@@ -204,10 +315,16 @@ main {
             .articles__qoute {
                 color: $text-white;
                 margin: 0;
+                margin-bottom: 25px;
+
                 p {
                     margin-bottom: 80px;
+                    padding-right: 50px;
+
+                    @media (max-width: 320px) {
+                        font-size: 12px;
+                    }
                 }
-                margin-bottom: 25px;
             }
 
             .articles__qoute-date {
@@ -218,8 +335,16 @@ main {
                 color: $text-white;
             }
 
-            img {
+            svg {
                 margin-left: -24px;
+                width: 597px;
+                height: 318px;
+
+                @media (max-width: 1440px) {
+                    align-self: center;
+                    width: 100%;
+                    height: 70%;
+                }
             }
         }
 
@@ -227,26 +352,72 @@ main {
             display: flex;
             flex-wrap: wrap;
 
+            @media (max-width: 1440px) {
+                max-width: 50%;
+            }
+
+            @media (max-width: 320px) {
+                flex-direction: column;
+                max-width: auto;
+            }
+
             .articles__item {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 width: 541px;
-                height: 319px;
                 padding-left: 24px;
                 padding-right: 32px;
                 border: 1px solid rgba(0, 0, 0, 0.3);
                 border-right: none;
                 margin-bottom: -1px;
 
+                @media (max-width: 320px) {
+                    flex-direction: row-reverse;
+                    justify-content: baseline;
+                    width: 304px;
+                    padding: 0;
+                    border: none;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+                }
+
+                .articles__title {
+                    margin-left: 16px;
+                    margin-bottom: 50px;
+                }
+
                 .articles__wrap {
                     display: flex;
                     justify-content: space-between;
                     align-items: flex-end;
-                    margin-bottom: 30px;
 
-                    p {
+                    @media (max-width: 320px) {
+                        flex-direction: column-reverse;
+                        align-items: flex-start;
+                        padding-left: 5px;
+                        padding-top: 16px;
+                    }
+
+                    div {
+                        @media (max-width: 320px) {
+                            display: flex;
+                            justify-content: center;
+                            align-self: center;
+                        }
+                    }
+
+                    .articles__qoute-author {
                         margin: 0;
+                    }
+
+                    .articles__img {
+                        width: 112px;
+                        height: 104px;
+
+                        @media (max-width: 320px) {
+                            width: 80px;
+                            height: 74px;
+                        }
                     }
                 }
             }
