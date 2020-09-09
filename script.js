@@ -5,6 +5,14 @@ const authors = ['Андрей Ситник', 'Девид Нил'];
 const dates = ['12 марта', '4 февраля'];
 const avatarsNum = [1, 2, 3, 4];
 
+const menuButton = document.querySelector('.menu-button');
+const menuHeader = document.querySelector('.header');
+
+menuButton.addEventListener('click', ()=> {
+  menuButton.classList.toggle('open');
+  menuHeader.classList.toggle('visually-hidden');
+});
+
 class NewsCard {
     constructor(link, title, data, author, avatarNum, parentSelector) {
         this.link = link;

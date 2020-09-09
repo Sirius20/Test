@@ -1,6 +1,7 @@
 // colors
 $bg-white: #FFFFFF;
 $bg-dark: #273238;
+$bg-menu: #F2F7FA;
 $text-dark: #333333;
 $text-black: #000000;
 $text-white: #FFFFFF;
@@ -37,9 +38,25 @@ body {
         width: 80%;
     }
 
+    @media (max-width: 768px) {
+        width: 90%;
+    }
+
     @media (max-width: 320px) {
         width: 100%;
     }
+}
+
+.visually-hidden {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
 }
 
 .header {
@@ -55,7 +72,12 @@ body {
     }
 
     @media (max-width: 320px) {
-        display: none;
+        position: absolute;
+        background-color: $bg-menu;
+        width: 100%;
+        padding-top: 92px;
+        padding-left: 16px;
+        z-index: 10;
     }
 
     .menu__list {
@@ -64,9 +86,19 @@ body {
         justify-content: space-between;
         padding-left: 0;
         margin-bottom: 26px;
+        
+        @media (max-width: 320px) {
+            flex-direction: column;
+            margin-bottom: 105px;
+        }
 
         .menu__item {
             margin-right: 20px;
+
+            @media (max-width: 320px) {
+                margin-bottom: 50px;
+            }
+
         }
     }
 
@@ -76,7 +108,7 @@ body {
 
         @media (max-width: 1010px) {
             margin-left: 30px;
-            align-self: flex-end;
+            // align-self: flex-end;
         }
 
         a {
@@ -137,7 +169,6 @@ main {
 
         .logo {
             display: flex;
-            align-items: flex-start;
             margin-right: 448px;
 
             @media (max-width: 1440px) {
@@ -151,6 +182,7 @@ main {
             @media (max-width: 320px) {
                 align-items: center;
                 margin-bottom: 10px;
+                z-index: 11;
             }
 
             img {
@@ -176,13 +208,82 @@ main {
                     display: none;
                 }
             }
+
+        }
+
+        .menu-button {
+            position: absolute;
+            display: none;
+            top: 8px;
+            right: 0px;
+            width: 35px;
+            height: 30px;
+            margin: 15px 5px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            z-index: 11;
+
+            @media (max-width: 320px) {
+                display: block;
+            }
+
+            span {
+                background-color:$text-black;
+                position: absolute;
+                transition: .3s ease-in-out;
+                width: 18px;
+                height: 2px;
+                transition-duration: 500ms;
+                top: 0px;
+                left: 0px;
+            }
+            
+            &::before {
+                content: "";
+                background-color:$text-black;
+                position: absolute;
+                transition: .3s ease-in-out;
+                width: 18px;
+                height: 2px;
+                transition-duration: 500ms;
+                top: 6px;
+                left: 0px;
+            }
+            
+            &::after {
+                content: "";
+                background-color:$text-black;
+                position: absolute;
+                transition: .3s ease-in-out;
+                width: 18px;
+                height: 2px;
+                transition-duration: 500ms;
+                top: 12px;
+                left: 0px;
+            }
         }
         
+        .open {
+            span { 
+                transform: rotate(45deg);
+                top: 5px;
+            }
+        
+            &::before {
+                opacity:0;
+            }
+            &::after {
+                transform: rotate(-45deg);
+                top: 5px;
+            }
+        }
+
         .main-header__upper {
             position: relative;
             font-weight: bold;
             margin-bottom: 8px;
             margin-left: 45px;
+            z-index: 1;
 
             &::before {
                 position: absolute;
@@ -196,18 +297,8 @@ main {
                 }
             }
 
-            &::after {
-                position: absolute;
-                display: none;
-
-                @media (max-width: 320px) {
-                    display: inline;
-                }
-            }
-
             @media (max-width: 320px) {
-                font-size: 16px;
-                
+                font-size: 18px;
             }
         }
 
@@ -223,11 +314,6 @@ main {
                     background: url("../images/Vector.png") no-repeat;
                     height: 30px;
                 }
-
-                // &::after {
-                //     content: ": Автор JS-интенсивов, встроенный скроллер";
-                //     line-height: 130%;
-                // }
             }
         }
 
@@ -406,7 +492,10 @@ main {
 
                     .articles__qoute-author {
                         margin: 0;
-                        margin-left: 16px;
+
+                        @media (max-width: 320px) {
+                            margin-left: 16px;
+                        }
                     }
                 }
 
