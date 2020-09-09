@@ -20,14 +20,14 @@ class NewsCard {
         element.classList.add('articles__item');
 
         element.innerHTML = `
-            <h2 class="articles__title"><a href=${this.link}>${this.title}</a></h2>
             <div class="articles__wrap">
+                <h2 class="articles__title"><a href=${this.link}>${this.title}</a></h2>
                 <div>
                     <time class="articles__qoute-date">${this.data}</time>
                     <p class="articles__qoute-author">${this.author}</p>
                 </div>
-                <img class="articles__img" src="/images/Avatar-0${this.avatarNum}.png" alt="avatar">
-            </div>`;
+            </div>
+            <img class="articles__img" src="/images/Avatar-0${this.avatarNum}.png" alt="avatar">`;
         this.parent.append(element);
     }
 }

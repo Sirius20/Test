@@ -363,7 +363,7 @@ main {
 
             .articles__item {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 justify-content: space-between;
                 width: 541px;
                 padding-left: 24px;
@@ -381,43 +381,46 @@ main {
                     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
                 }
 
-                .articles__title {
-                    margin-left: 16px;
-                    margin-bottom: 50px;
-                }
-
                 .articles__wrap {
                     display: flex;
+                    flex-direction: column;
                     justify-content: space-between;
-                    align-items: flex-end;
+                    margin-bottom: 33px;
 
                     @media (max-width: 320px) {
-                        flex-direction: column-reverse;
                         align-items: flex-start;
-                        padding-left: 5px;
-                        padding-top: 16px;
+                    }
+
+                    .articles__title {
+                        @media (max-width: 320px) {
+                            margin-bottom: 16px;
+                        }
                     }
 
                     div {
                         @media (max-width: 320px) {
                             display: flex;
-                            justify-content: center;
-                            align-self: center;
+                            justify-content: space-around
                         }
                     }
 
                     .articles__qoute-author {
                         margin: 0;
+                        margin-left: 16px;
                     }
+                }
 
-                    .articles__img {
-                        width: 112px;
-                        height: 104px;
+                .articles__img {
+                    width: 112px;
+                    height: 104px;
+                    align-self: flex-end;
+                    margin-bottom: 33px;
 
-                        @media (max-width: 320px) {
-                            width: 80px;
-                            height: 74px;
-                        }
+                    @media (max-width: 320px) {
+                        width: 80px;
+                        height: 74px;
+                        align-self: flex-start;
+                        margin: 16px 10px 0 10px;
                     }
                 }
             }
