@@ -8,6 +8,15 @@ const avatarsNum = [1, 2, 3, 4];
 const menuButton = document.querySelector('.menu-button');
 const menuHeader = document.querySelector('.header');
 
+window.addEventListener('resize', (evt) => {
+    let width = evt.target.outerWidth;
+    if (width <= 320) {
+        menuHeader.classList.add('visually-hidden');
+    } else {
+        menuHeader.classList.remove('visually-hidden');
+    }
+});
+
 menuButton.addEventListener('click', ()=> {
   menuButton.classList.toggle('open');
   menuHeader.classList.toggle('visually-hidden');
